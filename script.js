@@ -1,16 +1,12 @@
+// kör välkomstsidan
+printwelcomepage();
 
+if (localStorage.getItem("userID") !=="null"){
+    printloggin(); 
 
-// se om användaren är inloggad
-function localStorage(){ 
-    if(localStorage.getItem("username", "pass") !== null ){
-        //vad ska vissas om användaren inte är inloggad
-        printwelcomepage();
-    
-    } else{
-        //vad ska visas som användaren är inloggad
-        printloggin();
-    }}
-
+}else{
+    printwelcomepage();
+}
 
 //funktion för att logga in med användarnamn och lösenord
 function password() {
@@ -25,6 +21,10 @@ function password() {
 
 // händelser när man loggar in med rätt uppgifter
 if  (u == "test" && p=="1234") {
+console.log("ja det stämmer");
+
+localStorage.setItem("userID", u);
+console.log(localStorage.getItem("userID"));
 
     printloggin();
 }
@@ -32,12 +32,11 @@ if  (u == "test" && p=="1234") {
     printerrorpage();
         }
 }
- // kör välkomstsidan
- printwelcomepage();
+ 
 
 
  // skapar välkomst sida
-    function printwelcomepage(){
+ function printwelcomepage(){
     document.getElementById("Svar").innerHTML = "Logga in";
     
     }
@@ -61,33 +60,3 @@ function printerrorpage(){
     pass.remove();
     Svar.remove();
 }
-
-// function för logga ut knappen
-var loggaut = document.getElementById("loggaut");
-
-loggaut.addEventListener("click",function(){
-
-
-
-    if (loggaut){
-        printwelcomepage()
-    }
-})
-
-   
-
-
-
-  
-
-    
-
-
-
-
-
-
-
-
-    
-
